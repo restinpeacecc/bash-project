@@ -1,6 +1,6 @@
 #!/bin/bash
 #Create by R.I.P_C on 2018/06/01
-echo -e "\033[33mFile Finder v1.1.4 by R.I.P_C\033[0m"
+echo -e "\033[34mFile Finder v1.1.5 by R.I.P_C\033[0m"
 echo -e "\033[31m$LOGNAME\033[0m on `date`"
 echo
 
@@ -22,6 +22,5 @@ do
 
 done
 
-if [ -f $i ];then
-    echo -e "\033[31mNOTHING WAS FOUND!\033[0m"
-fi
+echo -e "\033[33mALL DONE\033[0m"
+
