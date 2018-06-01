@@ -18,10 +18,10 @@ read -p "Input FILE name: " file
 for i in `find $dir -name "$file"`
 do
 
-    if [ -f $i ];then
-        echo $i
-    else
-	echo -e "\033[31mNOTHING WAS FOUND\033[0m"
-    fi
+    echo $i
 
 done
+
+if [ -f $i ];then
+    echo -e "\033[31mNOTHING WAS FOUND!\033[0m"
+fi
