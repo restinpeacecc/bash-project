@@ -8,7 +8,7 @@ select i in "Tar Compress" "Tar List" "Tar Uncompress" "Quit"
 do
     case $i in
 	"Tar Compress")
-	    read -p "Input DIR path: " dir
+	    read -p "Input DIR path:(If null,will set the DIR to `pwd`) " dir
 	    if [ -d $dir ];then
 		echo -e "\033[32mDIR FOUND!\033[0m"
 		ls -l $dir
@@ -16,9 +16,13 @@ do
 		echo -e "\033[31mDIR NOT FOUND!\033[0m"
 		continue
 	    fi
-	    read -p "Input FILE name: " file
+	    read -p "Input FILE name:(If null,will compress everything in "$dir") " file
 	    read -p "Input TAR name: " tar
-	    read -p "Save to:(DIR) " save
+	    if [ -z $tar ];then
+		echo -e "\033[31mTAR NAME CANNOT BE NULL!\033[0m"
+		continue
+	    fi
+	    read -p "Save to:(If null,will save to `pwd`) " save
 	    tar -cJv -f $save$tar.tar.xz $dir$file
 	    if [ $? -ne 0 ];then
 		echo -e "\033[31mABORT\033[0m"
@@ -29,7 +33,7 @@ do
 	    ;;
 	
 	"Tar List")
-	    read -p "Input DIR path: " dir
+	    read -p "Input DIR path:(If null,will set the DIR to `pwd`) " dir
 	    if [ -d $dir ];then
 		echo -e "\033[32mDIR FOUND!\033[0m"
 		ls -l $dir
@@ -47,7 +51,7 @@ do
 	    ;;
 	
 	"Tar Uncompress")
-	    read -p "Input DIR path: " dir
+	    read -p "Input DIR path:(If null,will set the DIR to `pwd`) " dir
 	    if [ -d $dir ];then
 		echo -e "\033[32mDIR FOUND!\033[0m"
 		ls -l $dir
