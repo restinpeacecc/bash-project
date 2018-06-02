@@ -93,7 +93,7 @@ do
 	Quit) echo -e "\033[32mSee You!\033[0m"
 	      exit
 	;;
-	* ) echo -e "\033[33mInput 1~4 please\033[0m"
+	* ) echo -e "\033[35mUseage: 1)Tar Compress 2)Tar List 3)Tar Uncompress 4)Quit\033[0m"
     esac
 done
 
