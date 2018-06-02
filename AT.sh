@@ -1,6 +1,6 @@
 #!/bin/bash
 #Created by R.I.P_C on 2018/06/02
-echo -e "\033[32mAuto-Tar v.1.2.4 by R.I.P_C\033[0m"
+echo -e "\033[32mAuto-Tar v.1.2.3 by R.I.P_C\033[0m"
 echo -e "\033[31m$LOGNAME\033[0m on `date`"
 echo
 
