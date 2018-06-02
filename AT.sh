@@ -57,7 +57,8 @@ do
 	        echo -e "\033[31mNO SUCH FILE!\033[0m"
 		continue
 	    fi
-	    
+	    read -p "Save to:(DIR) " save
+	    tar -xJv -f $dir$tar.tar.xz -C $save
 	    ;;
 	
 	Quit) echo -e "\033[32mSee You!\033[0m"
