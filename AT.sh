@@ -58,9 +58,14 @@ do
 		continue
 	    fi
 	    read -p "Save to:(DIR) " save
-	    if [ ! -d $save ];then
-		echo "DIR not found,making..."
-		mkdir $save
+	    if [ -z $save ];then
+		echo -e "\033[31mDIR CANNOT BE NULL!\033[0m"
+		continue
+	    else
+	        if [ ! -d $save ];then
+		    echo -e "\033[33mDIR not found,making...\033[0m"
+		    mkdir $save
+	        fi
 	    fi
 	    tar -xJv -f $dir$tar.tar.xz -C $save
 	    ;;
