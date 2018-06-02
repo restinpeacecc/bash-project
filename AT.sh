@@ -16,7 +16,11 @@ do
 		echo -e "\033[31mDIR NOT FOUND!\033[0m"
 		continue
 	    fi
-	    read -p "Input FILE name:(If null,will compress everything in "$dir") " file
+	    read -p "Input FILE name: " file
+	    if [ -z $file ];then
+		echo -e "\033[31mFILE CANNOT BE NULL!\033[0m"
+		continue
+	    fi
 	    read -p "Input TAR name: " tar
 	    if [ -z $tar ];then
 		echo -e "\033[31mTAR NAME CANNOT BE NULL!\033[0m"
