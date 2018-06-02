@@ -58,6 +58,10 @@ do
 		continue
 	    fi
 	    read -p "Save to:(DIR) " save
+	    if [ ! -d $save ];then
+		echo "DIR not found,making..."
+		mkdir $save
+	    fi
 	    tar -xJv -f $dir$tar.tar.xz -C $save
 	    ;;
 	
