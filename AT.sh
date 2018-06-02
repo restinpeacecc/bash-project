@@ -27,6 +27,10 @@ do
 		continue
 	    fi
 	    read -p "Save to:(If null,will save to `pwd`) " save
+	    if [ ! -d $save ];then
+		echo "DIR not found,making..."
+		mkdir $save
+	    fi
 	    tar -cJv -f $save$tar.tar.xz $dir$file
 	    if [ $? -ne 0 ];then
 		echo -e "\033[31mABORT\033[0m"
