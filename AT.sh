@@ -17,7 +17,7 @@ do
 		continue
 	    fi
 	    read -p "Input FILE name: " file
-	    if [ -z $file ];then
+	    if [ -z "$file" ];then
 		echo -e "\033[31mFILE CANNOT BE NULL!\033[0m"
 		continue
 	    fi
