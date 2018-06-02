@@ -9,12 +9,16 @@ do
     case $i in
 	"Tar Compress")
 	    read -p "Input DIR path:(If null,will set the DIR to `pwd`) " dir
-	    if [ -d $dir ];then
-		echo -e "\033[32mDIR FOUND!\033[0m"
-		ls -l $dir
+	    if [ -z $dir ];then
+		dir=`pwd`
 	    else
-		echo -e "\033[31mDIR NOT FOUND!\033[0m"
-		continue
+	        if [ -d $dir ];then
+		    echo -e "\033[32mDIR FOUND!\033[0m"
+		    ls -l $dir
+	        else
+		    echo -e "\033[31mDIR NOT FOUND!\033[0m"
+		    continue
+	        fi
 	    fi
 	    read -p "Input FILE name: " file
 	    if [ -z "$file" ];then
@@ -31,7 +35,8 @@ do
 		echo "DIR not found,making..."
 		mkdir $save
 	    fi
-	    tar -cJv -f $save$tar.tar.xz $dir$file
+	    cd $dir
+	    tar -cJv -f $save$tar.tar.xz $file
 	    if [ $? -ne 0 ];then
 		echo -e "\033[31mABORT\033[0m"
 		rm $save$tar.tar.xz
