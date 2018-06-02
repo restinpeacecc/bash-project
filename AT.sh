@@ -23,8 +23,10 @@ do
 	    if [ $? -ne 0 ];then
 		echo -e "\033[31mABORT\033[0m"
 		rm $save$tar.tar.xz
+		continue
 	    fi
-            ;;
+            echo -e "\033[32mALL DONE!\033[0m"
+	    ;;
 	
 	"Tar List")
 	    read -p "Input DIR path: " dir
@@ -41,6 +43,7 @@ do
 		continue
 	    fi
 	    tar -tJv -f $dir$tar.tar.xz
+            echo -e "\033[32mALL DONE!\033[0m"
 	    ;;
 	
 	"Tar Uncompress")
@@ -68,6 +71,7 @@ do
 	        fi
 	    fi
 	    tar -xJv -f $dir$tar.tar.xz -C $save
+            echo -e "\033[32mALL DONE!\033[0m"
 	    ;;
 	
 	Quit) echo -e "\033[32mSee You!\033[0m"
