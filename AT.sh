@@ -80,6 +80,10 @@ do
 	        if [ ! -d $save ];then
 		    echo -e "\033[33mDIR not found,making...\033[0m"
 		    mkdir $save
+		    if [ $? -ne 0 ];then
+			echo -e "\033[31mABORT\033[0m"
+			continue
+		    fi
 	        fi
 	    fi
 	    tar -xJv -f $dir$tar.tar.xz -C $save
