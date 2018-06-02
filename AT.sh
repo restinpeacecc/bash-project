@@ -1,6 +1,8 @@
 #!/bin/bash
 #Created by R.I.P_C on 2018/06/02
-
+echo -e "\033[32mAuto-Tar v.1.2.4 by R.I.P_C\033[0m"
+echo -e "\033[31m$LOGNAME\033[0m on `date`"
+echo
 
 PS3="Select 1~4: "
 
@@ -11,6 +13,7 @@ do
 	    read -p "Input DIR path:(If null,will set the DIR to `pwd`) " dir
 	    if [ -z $dir ];then
 		dir=`pwd`
+		ls -l $dir
 	    else
 	        if [ -d $dir ];then
 		    echo -e "\033[32mDIR FOUND!\033[0m"
